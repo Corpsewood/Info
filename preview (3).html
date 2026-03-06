@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Corpsewood Info</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: white;
+            color: black;
+            font-family: monospace;
+            overflow: auto;
+        }
+        pre {
+            margin: 0;
+            padding: 1em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <pre id="text-content">Loading...</pre>
+
+    <script>
+        fetch('Corpsewood Info.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('text-content').textContent = data;
+            })
+            .catch(err => {
+                document.getElementById('text-content').textContent = 'Failed to load file.';
+                console.error(err);
+            });
+    </script>
+</body>
+</html>
